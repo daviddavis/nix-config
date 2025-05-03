@@ -11,12 +11,11 @@
     VISUAL = "nvim";
   };
 
-  home.packages = with pkgs; [
-    fzf
-    python313
-  ];
+  home.packages = with pkgs; [ python313 ];
 
+  programs.home-manager.enable = true;
   programs.zoxide.enable = true;
+  programs.fzf.enable = true;
 
   programs.zsh = {
     enable = true;
@@ -31,9 +30,6 @@
 
       # Basic key bindings
       bindkey -e
-
-      # enable fzf
-      eval "$(fzf --zsh)"
     '';
 
     shellAliases = {
@@ -47,6 +43,5 @@
     };
   };
 
-  programs.home-manager.enable = true;
   home.stateVersion = "24.11";
 }
