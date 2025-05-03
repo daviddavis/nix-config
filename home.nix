@@ -16,6 +16,8 @@
     python313
   ];
 
+  programs.zoxide.enable = true;
+
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
@@ -24,7 +26,8 @@
 
     initExtra = ''
       # Set prompt
-      PS1='%F{cyan}%n@%m%f %F{yellow}%~%f %# '
+      PS1='
+      %F{cyan}%n@%m%f %F{yellow}%~%f %F{cyan}$%f '
 
       # Basic key bindings
       bindkey -e
@@ -38,6 +41,7 @@
       g = "git";
       gaa = "git rev-parse --show-toplevel | xargs git add -A";
       gs = "git status";
+      gg = "git status";
       gd = "git diff";
       gc = "git commit";
     };
