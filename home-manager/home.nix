@@ -36,10 +36,23 @@
       ll = "ls -la";
       g = "git";
       gaa = "git rev-parse --show-toplevel | xargs git add -A";
+      gca = "git rev-parse --show-toplevel | xargs git add -A && git commit";
       gs = "git status";
       gg = "git status";
       gd = "git diff";
       gc = "git commit";
+      ggp = "git push origin $(git rev-parse --abbrev-ref HEAD)";
+      ggl = "git pull origin $(git rev-parse --abbrev-ref HEAD)";
+      ggpull = "git pull origin $(git rev-parse --abbrev-ref HEAD)";
+      ggf = "git push -f origin $(git rev-parse --abbrev-ref HEAD)";
+    };
+  };
+
+  programs.git = {
+    enable = true;
+    aliases = {
+      co = "checkout";
+      amend = "commit --amend";
     };
   };
 
