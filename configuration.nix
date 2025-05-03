@@ -84,9 +84,10 @@
     description = "David";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-			vim
-			git
-			ripgrep
+      vim
+      git
+      ripgrep
+      neovim
     ];
   };
 
@@ -137,3 +138,5 @@
   system.stateVersion = "24.11"; # Did you read the comment?
 
 }
+
+# vim: ts=2 sts=2 sw=2 et
