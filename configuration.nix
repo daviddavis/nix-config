@@ -5,10 +5,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    <home-manager/nixos>
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -83,7 +83,12 @@
     isNormalUser = true;
     description = "David";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
+  };
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
   };
 
   # Install firefox.
@@ -95,11 +100,16 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-      vim
-      git
-      ripgrep
-      neovim
-      btop
+    vim
+    git
+    ripgrep
+    neovim
+    btop
+    home-manager
+    wget
+    gcc
+    gnumake
+    clang-tools
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
