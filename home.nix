@@ -19,6 +19,8 @@
     enable = true;
     shellAliases = {
       ll = "ls -la";
+      g = "git";
+      gaa = "git rev-parse --show-toplevel | xargs git add -A";
       gs = "git status";
       gd = "git diff";
       wat = "echo 'wut'";
