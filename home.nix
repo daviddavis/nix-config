@@ -13,6 +13,7 @@
 
   home.packages = with pkgs; [
     fzf
+    python313
   ];
 
   programs.zsh = {
@@ -27,6 +28,9 @@
 
       # Basic key bindings
       bindkey -e
+
+      # enable fzf
+      eval "$(fzf --zsh)"
     '';
 
     shellAliases = {
