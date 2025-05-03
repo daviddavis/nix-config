@@ -84,8 +84,9 @@
     description = "David";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-	vim
-	git
+			vim
+			git
+			ripgrep
     ];
   };
 
