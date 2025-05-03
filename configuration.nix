@@ -7,7 +7,6 @@
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    <home-manager/nixos>
   ];
 
   # Bootloader.
@@ -80,19 +79,18 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.david = {
+    shell = pkgs.zsh;
     isNormalUser = true;
     description = "David";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [ ];
   };
 
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-  };
-
   # Install firefox.
   programs.firefox.enable = true;
+
+  # Install zsh
+  programs.zsh.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -100,6 +98,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    zsh
     vim
     git
     ripgrep
