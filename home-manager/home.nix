@@ -11,7 +11,7 @@
     VISUAL = "nvim";
   };
 
-  home.packages = with pkgs; [ python313 ];
+  home.packages = with pkgs; [ python3 nodejs unzip ];
 
   programs.home-manager.enable = true;
   programs.zoxide.enable = true;
